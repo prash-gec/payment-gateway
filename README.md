@@ -19,10 +19,10 @@ dependency [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archiv
  and run below commands from root directory.
 
 On mac
-`./gradlew assemble`
+`./gradlew bootRun`
 
 On Windows
-`gradlew assemble`
+`gradlew bootRun`
 
 - Open api spec should be available after successful run at http://localhost:8080/swagger-ui/index.html (port can be changed
   from `application.properties`)
