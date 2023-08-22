@@ -27,6 +27,6 @@ On Windows
 ## System Design
 
 <p align="center">
-  <img src="https://github.com/prash-gec/payment-gateway/fd.png" alt="Flow Diagram" width="300"/>
+  <img src="https://github.com/prash-gec/payment-gateway/blob/main/fd.png" alt="Flow Diagram" width="300"/>
 </p>
 
