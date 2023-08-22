@@ -1,16 +1,8 @@
 package com.checkout.controller;
 
 
-import static org.hamcrest.Matchers.containsString;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import ch.qos.logback.classic.encoder.JsonEncoder;
-import com.checkout.domain.Amount;
-import com.checkout.domain.CardDetail;
+import com.checkout.request.Amount;
+import com.checkout.request.CardDetail;
 import com.checkout.domain.Transaction;
 import com.checkout.request.PaymentRequest;
 import com.checkout.service.MerchantService;
@@ -24,6 +16,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @WebMvcTest(MerchantController.class)
 public class MerchantControllerTests {
@@ -36,10 +32,10 @@ public class MerchantControllerTests {
 
     @Test
     public void invalidPaymentRequest() throws Exception {
-                this.mockMvc.perform(post("/merchant/api/payments")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(getInvalidReq()))
-                        .andExpect(status().is4xxClientError());
+        this.mockMvc.perform(post("/merchant/api/payments")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getInvalidReq()))
+                .andExpect(status().is4xxClientError());
     }
 
     @Test
@@ -55,7 +51,7 @@ public class MerchantControllerTests {
                 new PaymentRequest(new Amount(123.0, "USD"), new CardDetail()));
     }
 
-    public String getValidReq() throws JsonProcessingException{
+    public String getValidReq() throws JsonProcessingException {
         Amount amount = new Amount(123.0, "USD");
         CardDetail cardDetail = new CardDetail(
                 "45678945612345", "12", "2025", "290", "Prashant Sharma");

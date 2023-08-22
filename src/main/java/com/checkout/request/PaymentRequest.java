@@ -1,7 +1,5 @@
 package com.checkout.request;
 
-import com.checkout.domain.Amount;
-import com.checkout.domain.CardDetail;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

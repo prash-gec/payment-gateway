@@ -3,11 +3,9 @@ package com.checkout.dummy;
 import com.checkout.domain.Transaction;
 import com.checkout.utils.PaymentStatus;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Dummy Bank client simulate any bank adapter in our application which have all the
@@ -23,18 +21,16 @@ public class DummyBankClient {
     @Value("#{'${blocked.cc.series}'.split(',')}")
     List<String> blockedCardSeriesList;
 
-    public PaymentStatus charge(Transaction transaction){
-        String ccNumber  = transaction.getCardNumber();
-        String ccSeries = ccNumber.substring(0,5);
-        if(blockedCardSeriesList.contains(ccSeries)){
+    public PaymentStatus charge(Transaction transaction) {
+        String ccNumber = transaction.getCardNumber();
+        String ccSeries = ccNumber.substring(0, 4);
+        if (blockedCardSeriesList.contains(ccSeries)) {
             return PaymentStatus.DENIED;
         }
-        if(validCardSeriesList.contains(ccSeries))
+        if (validCardSeriesList.contains(ccSeries))
             return PaymentStatus.SUCCESS;
         return PaymentStatus.FAILURE;
     }
-
-
 
 
 }

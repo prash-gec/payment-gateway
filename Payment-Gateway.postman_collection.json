@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "14335149-a8bd-4301-9b70-47f51ffb2cbb",
+		"name": "Payment-Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1752980"
+	},
+	"item": [
+		{
+			"name": "Create Merchant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Amazon\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/merchants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"merchants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": {\n        \"value\": 123,\n        \"currency\": \"USD\"\n    },\n    \"card_detail\": {\n        \"card_number\": \"45682121121123\",\n        \"expiry_month\": \"01\",\n        \"expiry_year\": 2025,\n        \"cvv\": 290,\n        \"name\" : \"Prashant Sharma\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/merchants/31895942-253d-4b03-9c94-229eeed2b6eb/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"merchants",
+						"31895942-253d-4b03-9c94-229eeed2b6eb",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Payment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/merchants/05dc77b2-bfc3-4bf5-8de2-78dd27133e12/payments/7fd82e5d-9856-4bf2-90b3-1b52c279f2c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"merchants",
+						"05dc77b2-bfc3-4bf5-8de2-78dd27133e12",
+						"payments",
+						"7fd82e5d-9856-4bf2-90b3-1b52c279f2c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All payments for a Merchant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/merchants/05dc77b2-bfc3-4bf5-8de2-78dd27133e12/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"merchants",
+						"05dc77b2-bfc3-4bf5-8de2-78dd27133e12",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

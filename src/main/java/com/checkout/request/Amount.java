@@ -1,4 +1,4 @@
-package com.checkout.domain;
+package com.checkout.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,7 @@ public class Amount {
     private BigDecimal value;
     private Currency currency;
 
-    public Amount(Double val, String currency){
-        new Amount (new BigDecimal(val), Currency.getInstance(currency));
+    public Amount(Double val, String currency) {
+        new Amount(new BigDecimal(val), Currency.getInstance(currency));
     }
 }
