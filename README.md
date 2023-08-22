@@ -1,5 +1,5 @@
 # Checkout.com Assignment
-Checkout.com take home challenge
+[Checkout.com take home challenge](https://github.com/prash-gec/payment-gateway/blob/main/checkout-assignment.pdf)
 
 ## Dependency
 1. [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
