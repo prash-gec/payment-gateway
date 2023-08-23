@@ -28,6 +28,7 @@ On Windows
   from `application.properties`)
 
 - If want to run in docker (Optional)
+    - build app `./gradle assemble`
     - build docker image `docker build -t payment-gateway-image .`
     - run docker image `docker run -p 8080:8080 payment-gateway-image`
 
@@ -75,11 +76,12 @@ As configured in `application.properties` list of blocked and valid card series.
 
 ## Area of improvement
 1. Adding IdempotencyKey will make sure duplicate transactions are not being processed.
-2. Authentication can be added, as at the moment any actor can access any endpoint (SCA and auth token).
-3. Payment should be divided in `Charge` and `Authorize`.
-4. Ideally a new row for all the state of payment should be inserted in the `payment_details` table, so any payment can be tracked end to end.
-5. Previous point will also help in analysing the round trip for payment request and failure rate.
-6. Retry mechanism should be added based on the return status.
+2. Card details are flowing asround as plaintext, it should be encrypted or better just the reference of these credentials is used.
+3. Authentication can be added, as at the moment any actor can access any endpoint (SCA and auth token).
+4. Payment should be divided in `Charge` and `Authorize`.
+5. Ideally a new row for all the state of payment should be inserted in the `payment_details` table, so any payment can be tracked end to end.
+6. Previous point will also help in analysing the round trip for payment request and failure rate.
+7. Retry mechanism should be added based on the return status.
 
 ## Cloud tech consideration
 

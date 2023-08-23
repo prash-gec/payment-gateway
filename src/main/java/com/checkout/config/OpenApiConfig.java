@@ -13,7 +13,7 @@ import java.util.List;
 @Configuration
 public class OpenApiConfig {
 
-    @Value("${local.server.url}")
+    @Value("${server.url}")
     private String url;
 
 
